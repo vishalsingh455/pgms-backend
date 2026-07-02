@@ -1,5 +1,5 @@
-import dotenv from dotenv
-import app from "./app"
+import dotenv from 'dotenv'
+import app from "./app.js"
 import { connectDB } from './config/db.js';
 
 // WHY: Load environmental configurations immediately before booting any application modules.

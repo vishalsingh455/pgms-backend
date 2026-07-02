@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { globalErrorHandler, AppError } from './middlewares/errorHandler.js';
 import authRouter from './routes/authRoutes.js'
+import propertyRouter from './routes/propertyRoutes.js';
+
 const app = express();
 
 // WHY: Middleware to allow cross-origin requests from our upcoming frontend client web app.
@@ -10,6 +12,7 @@ app.use(cors());
 // WHY: Middleware to parse incoming JSON payloads into standard JavaScript objects (`req.body`).
 app.use(express.json());
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/properties', propertyRouter);
 
 // WHY: Simple heartbeat health-check endpoint to verify that the API server is functional.
 app.get('/api/v1/health', (req, res) => {
