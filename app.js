@@ -3,6 +3,7 @@ import cors from 'cors';
 import { globalErrorHandler, AppError } from './middlewares/errorHandler.js';
 import authRouter from './routes/authRoutes.js'
 import propertyRouter from './routes/propertyRoutes.js';
+import operationsRouter from './routes/operationsRoutes.js';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/properties', propertyRouter);
+app.use('/api/v1/operations', operationsRouter);
 
 // WHY: Simple heartbeat health-check endpoint to verify that the API server is functional.
 app.get('/api/v1/health', (req, res) => {
